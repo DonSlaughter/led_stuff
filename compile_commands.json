@@ -125,8 +125,8 @@
         "file": "/home/mehmet/.platformio/packages/framework-arduino-avr/cores/arduino/wiring_shift.c"
     },
     {
-        "command": "/home/mehmet/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/pro16MHzatmega328/src/main.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -Os -Wall -ffunction-sections -fdata-sections -flto -mmcu=atmega328p -DPLATFORMIO=40304 -DARDUINO_AVR_PRO -DUBRRH -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I/home/mehmet/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/mehmet/.platformio/packages/framework-arduino-avr/variants/eightanaloginputs src/main.cpp",
+        "command": "/home/mehmet/.platformio/packages/toolchain-atmelavr/bin/avr-g++ -o .pio/build/pro16MHzatmega328/src/main.ino.cpp.o -c -fno-exceptions -fno-threadsafe-statics -fpermissive -std=gnu++11 -Os -Wall -ffunction-sections -fdata-sections -flto -mmcu=atmega328p -DPLATFORMIO=40304 -DARDUINO_AVR_PRO -DUBRRH -DF_CPU=16000000L -DARDUINO_ARCH_AVR -DARDUINO=10808 -Iinclude -Isrc -I/home/mehmet/.platformio/packages/framework-arduino-avr/cores/arduino -I/home/mehmet/.platformio/packages/framework-arduino-avr/variants/eightanaloginputs src/main.ino.cpp",
         "directory": "/home/mehmet/SourceCode/platformio/led_stuff",
-        "file": "/home/mehmet/SourceCode/platformio/led_stuff/src/main.cpp"
+        "file": "/home/mehmet/SourceCode/platformio/led_stuff/src/main.ino.cpp"
     }
 ]
