@@ -1,2 +1,4 @@
 .pio
 .travis.yml
+compile_commands.json
+test/
