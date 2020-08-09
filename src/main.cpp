@@ -18,15 +18,22 @@
 
 CRGB leds[NUM_LEDS];
 
+int red_poti = A0;
+int red_value;
+int green_poti = A1;
+int green_value;
+int blue_poti = A2;
+int blue_value;
+
 void setup(){
 	// initialize LED digital pin as an output
 	//pinMode(LED_BUILTIN, OUTPUT);
+	Serial.begin(9600);
 	FastLED.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS);
 }
 
 void loop(){
-       // digitalWrite(LED_BUILTIN, HIGH);
-       // delay(1000);
-       // digitalWrite(LED_BUILTIN,LOW);
-       // delay(1000);
+	red_value = analogRead(red_poti);
+	//Serial.println(red_value);
+
 }
