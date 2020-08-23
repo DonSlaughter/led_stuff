@@ -3,12 +3,9 @@
    The colors are chosen with 3 Potentiometers in HSV
 */
 
-//#ifndef LED_BUILLTIN
-//	#define LED_BUILLTIN PC13
-//#endif
-
 #include <Arduino.h>
 #include "FastLED.h"
+#include "read_values.h"
 
 #define NUM_LEDS 64
 #define DATA_PIN 2
@@ -17,12 +14,15 @@
 
 CRGB leds[NUM_LEDS];
 
-int red_poti = A0;
-int red_value;
-int green_poti = A1;
-int green_value;
-int blue_poti = A2;
-int blue_value;
+//read_values read01(A0);
+//read_values read02(A1);
+//read_values read03(A2);
+//int potentiometer_01 = A0;
+//int value_potentiometer_01;
+//int potentiometer_02 = A1;
+//int value_potentiometer_02;
+//int potentiometer_03 = A2;
+//int value_potentiometer_03;
 
 void set_Color_RGB(int r, int g, int b) {
 	CRGB color = CRGB(r, g, b);
@@ -31,12 +31,23 @@ void set_Color_RGB(int r, int g, int b) {
 
 void print_values(int r, int g, int b) {
 	char buf[100];
-	sprintf(buf, "Red: %d, Green: %d, Blue: %d", r, g, b);
+	sprintf(buf, "Potentiometer 01: %d, Potentiometer 02: %d, Potentiometer 03: %d", r, g, b);
 	Serial.println(buf);
 }
 
+//int read_potentiometer (int A0, int A1, int A2) {
+//	value_potentiometer_01 = analogRead(potentiometer_01);
+//	value_potentiometer_01 = map(value_potentiometer_01, 0, 1023, 0, 255);
+//	value_potentiometer_02 = analogRead(potentiometer_02);
+//	value_potentiometer_02 = map(value_potentiometer_02, 0, 1023, 0, 255);
+//	value_potentiometer_03 = analogRead(potentiometer_03);
+//	value_potentiometer_03 = map(value_potentiometer_03, 0, 1023, 0, 255);
+//	return (value_potentiometer_01, value_potentiometer_02, value_potentiometer_03);
+//}
+
+
 void setup(){
-	// initialize LED digital pin as an output
+	// initia3ize LED digital pin as an output
 	//pinMode(LED_BUILTIN, OUTPUT);
 	Serial.begin(9600);
 	FastLED.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS);
@@ -44,13 +55,8 @@ void setup(){
 }
 
 void loop(){
-	red_value = analogRead(red_poti);
-	red_value = map(red_value, 0, 1023, 0, 255);
-	green_value = analogRead(green_poti);
-	green_value = map(green_value, 0, 1023, 0, 255);
-	blue_value = analogRead(blue_poti);
-	blue_value = map(blue_value, 0, 1023, 0, 255);
-	set_Color_RGB(red_value, green_value, blue_value);
-	print_values(red_value, green_value, blue_value);
+//	read_potentiometer();
+	//set_Color_RGB(value_potentiometer_01, value_potentiometer_02, value_potentiometer_03);
+	//print_values(value_potentiometer_01, value_potentiometer_02, value_potentiometer_03);
 	FastLED.show();
 }
