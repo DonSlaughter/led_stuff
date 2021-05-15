@@ -10,9 +10,9 @@
 #include <Arduino.h>
 #include "FastLED.h"
 
-#define NUM_LEDS 64
+#define NUM_LEDS 25
 #define DATA_PIN 2
-#define COLOR_ORDER GBR
+#define COLOR_ORDER GRB
 #define LED_TYPE WS2812B
 
 CRGB leds[NUM_LEDS];
@@ -38,6 +38,10 @@ void print_values(int r, int g, int b) {
 void setup(){
 	// initialize LED digital pin as an output
 	//pinMode(LED_BUILTIN, OUTPUT);
+	pinMode(red_poti, INPUT);
+	pinMode(green_poti, INPUT);
+	pinMode(blue_poti, INPUT);
+	pinMode(DATA_PIN, OUTPUT);
 	Serial.begin(9600);
 	FastLED.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS);
 	FastLED.setBrightness(50);
@@ -50,6 +54,9 @@ void loop(){
 	green_value = map(green_value, 0, 1023, 0, 255);
 	blue_value = analogRead(blue_poti);
 	blue_value = map(blue_value, 0, 1023, 0, 255);
+	//red_value = 0;
+	//green_value = 0;
+	//blue_value = 0;
 	set_Color_RGB(red_value, green_value, blue_value);
 	print_values(red_value, green_value, blue_value);
 	FastLED.show();
